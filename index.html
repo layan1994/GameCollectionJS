@@ -16,7 +16,7 @@
                <button class="btn btn-primary" onclick="ageInDays()">click me ?</button>
             </div>
              <div>
-               <button class="btn btn-danger" onclick="reset() ">Reset</button>
+               <button class="btn btn-danger" onclick="reset()">Reset</button>     
             </div>
         </div> 
         <div class="flex-box-container-1">
@@ -41,23 +41,21 @@
       <h1>Change the color of the all Buttons</h1>
           <div class="flex-box-pic-color">
             <form action=""> 
-              <select name="dropdown" id="btnbackground" onchange="changeBackgroundColor()">
+              <select name="dropdown" id="btnbackground" onchange="changeBackgroundColor(this)">
                 <option value="random">Random</option>
                 <option value="red">Red</option>
-                <option value="yellow">Yellow</option>
                 <option value="blue">Blue</option>
-                <option value="Reset">Reset</option>
-
+                <option value="yellow">Yellow</option>
+                <option value="reset">Reset</option>
               </select>
+
               <button class="btn btn-danger">Okay</button>
               <button class="btn btn-primary">Google</button>
               <button class="btn btn-warning">Yahoo</button>
               <button class="btn btn-success">Apple</button>
-            </form>
-           
+            </form>             
           </div>
     </div>
-
  <script src="js/script.js"></script> 
 </body>
 </html>
