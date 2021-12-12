@@ -1,4 +1,4 @@
-.container-1, .container-2, .container-3, .container-4{
+.container-1, .container-2, .container-3, .container-4, .container-5{
     padding-top: 20px;
     border: 1px solid black;
     width:75%;
@@ -15,7 +15,7 @@
     flex-direction: row;
 }
 .flex-box-container-1 div {
-   
+     
     padding:10px;
     border: 1px solid black;
     display: flex;
@@ -39,3 +39,6 @@
     box-shadow: 0px 10px 50px rgba(37,50,233,1);
 }
 
+table , tr , th , td {
+    border: 1px solid black;
+}

@@ -29,7 +29,7 @@ function generateCat() {
 
     let image = document.createElement('img');
     let div = document.getElementById('flex-cat-gen');
-    image.src ="cat-chat.gif";
+    image.src ="images/cat-chat.gif";
     div.appendChild(image);
 
 }
@@ -103,7 +103,7 @@ function rpsFrontEnd(humanImgChoice, botImgChoice, finalMessage) {
       document.getElementById('flex-box-rps-div').appendChild(botDiv);                
 }
 
-//Challenge 4 color changer
+//Challenge 4 color changer--------------------------------------------------
 
 var all_buttons = document.getElementsByTagName('button')
 console.log(all_buttons); 
@@ -154,7 +154,7 @@ function buttonsReset(){
 }
 
 function buttonsRandom(){
-    let randomList = ['btn-danger','btn-primary','btn-warning','btn-success']
+    let randomList = ['btn-danger','btn-primary','btn-warning','btn-success'];
 
     for (let i=0 ; i<all_buttons.length ; i++){
        let randomNumber = Math.floor(Math.random()*4); 
@@ -163,3 +163,7 @@ function buttonsRandom(){
     }
 }
   
+// Challenge 5 : Black Jack ------------------------------------------------
+
+
+ 

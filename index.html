@@ -32,9 +32,9 @@
         <div class="container-3">
           <h1>Challange 3: Rock-Paper-scissor</h1> 
           <div class="flex-box-rps" id="flex-box-rps-div">
-            <img src="rock.jpg" height="150px" width="150px" alt="" id="rock" onclick="rpsGame(this)">
-            <img src="paper.jpg" height="150px" width="150px" alt="" id="paper" onclick="rpsGame(this)">
-            <img src="scissors.png" height="150px" width="150px"alt="" id="scissor" onclick="rpsGame(this)">
+            <img src="images/rock.jpg" height="150px" width="150px" alt="" id="rock" onclick="rpsGame(this)">
+            <img src="images/paper.jpg" height="150px" width="150px" alt="" id="paper" onclick="rpsGame(this)">
+            <img src="images/scissors.png" height="150px" width="150px"alt="" id="scissor" onclick="rpsGame(this)">
           </div>
     </div>
     <div class="container-4">
@@ -56,6 +56,41 @@
             </form>             
           </div>
     </div>
+    <div class="container-5">
+      <h1>Challege 5: BlackJack</h1>
+      <h3> <span id="final-results"> Let's Play</span></h3>
+      <div class="flex-blackjack-row-1">
+        <div class="your-box">
+          <h2>You : <span id="your-score">0</span></h2>
+        </div>
+        <div class="bot-box">
+          <h2>Dealer: <span id="bot-score">0</span></h2>
+        </div>
+      </div>
+      <div class="flex-bkackjack-row2">
+        <div>
+          <button class="btn-lg btn-primary mg-2" id="bj-hit-button">Hit</button>
+          <button class="btn-lg btn-warning mg-2" id="bj-stand-button">Stand</button>
+          <button class="btn-lg btn-danger mg-2" id="bj-deal-button">Deal</button>
+        </div>
+      </div>
+      <div class="flex-blackjack-row3">
+        <table> 
+          <tr>
+            <th> <b> Wins</b></th>
+            <th><b>Loses</b></th>
+            <th><b>Draws</b></th>
+          </tr>
+           <tr>
+             <td><span id="bj-wins">0</span></td>
+             <td><span id="bj-wins">0</span></td>
+             <td><span id="bj-wins">0</span></td>
+           </tr>
+        </table>
+      </div>
+    </div>
+
+
  <script src="js/script.js"></script> 
 </body>
 </html>
