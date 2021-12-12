@@ -165,5 +165,55 @@ function buttonsRandom(){
   
 // Challenge 5 : Black Jack ------------------------------------------------
 
+let blackJackGame = {
+    'you': {'scoreSpan':'#your-score', 'div':'#your-box', 'score':0},
+    'dealer': {'scoreS,pan':'#bot-score', 'div':'#bot-box', 'score':0},
+    'cards':['2','3','4','5','6','7','8','9','10','J','K','Q','A'],
+    'cardsMap':{'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'J':10,'K':10,'Q':10,'A':[1,11]},
 
+};
+
+const YOU = blackJackGame['you'];
+const DEALER = blackJackGame['dealer'];
+const hitSound = new Audio('./sounds/swish.m4a');
+
+
+document.querySelector('#bj-hit-button').addEventListener('click', blackJackHit);
+document.querySelector('#bj-deal-button').addEventListener('click', blackJackDealer);
+
+function blackJackHit() {
+    let card = randomPicker();
+    updateScore(card, YOU);
+    showCard(card, YOU);
+    console.log(YOU['score']);
+}
+
+function randomPicker(){
+    let randoCard = Math.floor(Math.random()*13);
+    return blackJackGame['cards'][randoCard]; 
+}
  
+function showCard(card ,activePlayer){
+    var imageCard = document.createElement('img');
+    imageCard.src = `./images/${card}.png`;
+    document.querySelector(activePlayer['div']).appendChild(imageCard);
+    hitSound.play();
+}
+
+function blackJackDealer(){
+    let yourImg = document.querySelector('#your-box').querySelectorAll('img');
+    let dealerImg = document.querySelector('#bot-box').querySelectorAll('img');
+
+    for(let i=0 ; i<yourImg.length ; i++){
+        yourImg[i].remove();
+    }
+    for(let i=0 ; i<dealerImg.length ; i++){
+        dealerImg[i].remove();
+    }
+ 
+}
+
+function updateScore(card, activePlayer){
+
+    activePlayer['score'] += blackJackGame['cardsMap'][card];
+}

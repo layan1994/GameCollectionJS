@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.flex-box-container-1, .flex-box-container-2, .flex-box-rps, .flex-box-pic-color{
+.flex-box-container-1, .flex-box-container-2, .flex-box-rps, .flex-box-pic-color, .flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3 {
     border: 1px solid black;
     display: flex;
     padding:10px; 
@@ -41,4 +41,33 @@
 
 table , tr , th , td {
     border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
+
+.flex-blackjack-row-1, .flex-blackjack-row-2 {
+   background: url('/images/back2.jpg') center ;
+   color: #ffffff;
+  
+
+}
+.flex-blackjack-row-1 div{
+    border: 1px solid black;
+    height:350px;
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+.flex-blackjack-row-2 div{
+    border: 1px solid black;
+    padding: 10px;
+} 
+.flex-blackjack-row-2 button{
+    border: 1px solid black;
+    padding: 10px;
+} 
+
+.flex-blackjack-row-1 img{
+    width: 15%;
+    padding: 10px;
 }
