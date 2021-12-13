@@ -208,35 +208,40 @@ function randomPicker(){
 function showCard(card ,activePlayer){
     if(activePlayer['score'] <= 21){
      var imageCard = document.createElement('img');
-     imageCard.src = `../images/${card}.png`;
+     imageCard.src = `../images/${card}.png `;
      document.querySelector(activePlayer['div']).appendChild(imageCard);
      hitSound.play();
  }
 }
 
 function blackJackDealer(){
+    if(blackJackGame['turnsOver'] === 0){
 
-    let yourImg = document.querySelector('#your-box').querySelectorAll('img');
-    let dealerImg = document.querySelector('#bot-box').querySelectorAll('img');
+        blackJackGame['isStand'] = false;
 
-    for(let i=0 ; i<yourImg.length ; i++){
-        yourImg[i].remove();
-    }
-    for(let i=0 ; i<dealerImg.length ; i++){
-        dealerImg[i].remove();
-    }
-    YOU['score'] = 0;
-    DEALER['score'] = 0;
+        let yourImg = document.querySelector('#your-box').querySelectorAll('img');
+        let dealerImg = document.querySelector('#bot-box').querySelectorAll('img');
 
-    document.querySelector('#your-score').textContent = 0;
-    document.querySelector('#your-score').style.color = '#ffffff';
-    document.querySelector('#bot-score').textContent = 0;
-    document.querySelector('#bot-score').style.color = '#ffffff';
+        for(let i=0 ; i<yourImg.length ; i++){
+            yourImg[i].remove();
+        }
+        for(let i=0 ; i<dealerImg.length ; i++){
+            dealerImg[i].remove();
+        }
+        YOU['score'] = 0;
+        DEALER['score'] = 0;
 
-    document.querySelector('#final-results').textContent = "Lest's Play";
-    document.querySelector('#final-results').style.color = 'black';
+        document.querySelector('#your-score').textContent = 0;
+        document.querySelector('#your-score').style.color = '#ffffff';
+        document.querySelector('#bot-score').textContent = 0;
+        document.querySelector('#bot-score').style.color = '#ffffff';
 
+        document.querySelector('#final-results').textContent = "Lest's Play";
+        document.querySelector('#final-results').style.color = 'black';
 
+        blackJackGame['turnsOver'] = true;
+
+ }
 
 }
 
@@ -266,18 +271,19 @@ function showScore(activePlayer){
 } 
 
 function dealerLogic(){
-    blackJackGame['isStand'] = true;
-    let card = randomPicker();
-    showCard(card , DEALER);
-    updateScore(card , DEALER);
-    showScore(DEALER);
 
-    if(DEALER['score']>15){
+    blackJackGame['isStand'] = true;
+      while(DEALER['score'] < 16 && blackJackGame['isStand'] === true){
+        let card = randomPicker();
+        showCard(card , DEALER);
+        updateScore(card , DEALER);
+        showScore(DEALER);
+     }
+ 
         blackJackGame['turnOver'] = true;
         let winner = announceWinner();
         showResult(winner);
-        console.log(blackJackGame['turnOver']);
-    }
+  
 }
 
 // select the winner and announce the winner of
@@ -309,24 +315,27 @@ function announceWinner(){
 
  function showResult(winner){
 
-    if(winner === YOU){
-        document.querySelector('#bj-wins').textContent = blackJackGame['wins'];
+    if(blackJackGame['turnsOver'] === true){
 
-        message = 'You Won';
-        messageColor = 'green'
-        winSound.play();
-    }else if(winner===DEALER){
-        document.querySelector('#bj-loses').textContent = blackJackGame['loses'];
-        message = 'You Lost';
-        messageColor = 'red';
-        lostSound.play();
-    }else{
-        document.querySelector('#bj-draws').textContent = blackJackGame['draws'];
-        message = 'You Draw';
-        messageColor = 'black'
-    }
-    document.querySelector('#final-results').textContent = message;
-    document.querySelector('#final-results').style.color = messageColor;
+        if(winner === YOU){
+            document.querySelector('#bj-wins').textContent = blackJackGame['wins'];
+
+            message = 'You Won';
+            messageColor = 'green'
+            winSound.play();
+        }else if(winner===DEALER){
+            document.querySelector('#bj-loses').textContent = blackJackGame['loses'];
+            message = 'You Lost';
+            messageColor = 'red';
+            lostSound.play();
+        }else{
+            document.querySelector('#bj-draws').textContent = blackJackGame['draws'];
+            message = 'You Draw';
+            messageColor = 'black'
+        }
+        document.querySelector('#final-results').textContent = message;
+        document.querySelector('#final-results').style.color = messageColor;
+    }    
 
  } 
 
